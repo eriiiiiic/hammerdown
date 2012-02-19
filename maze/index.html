@@ -1,0 +1,32 @@
+<html>
+<head>
+<link rel="shortcut icon" href="ocio.jpg" />
+<title>3|2I6C</title>
+<script language="javascript">
+<!--
+var texto="IIIIII";
+var c=1;
+var id="loser";
+
+function typing(){
+	var elemento = document.getElementById(id);
+	elemento.innerHTML="ER" + texto.substr(0, c) + "C";
+	c++
+	if (c > texto.length){
+   	c=1;
+   	setTimeout("typing()", 1000 );
+	}else{
+ 		setTimeout("typing()", 500);
+	}
+}
+//-->
+</script>
+</head>
+<body onload="typing();" bgcolor="#000000" >
+	<font color="#FF0000">
+		<h1 id="loser"></h1>
+	</font>
+	<a href="maze.html" >Es momento de bailar la esponja</a><br />
+</body>
+</html>
+
