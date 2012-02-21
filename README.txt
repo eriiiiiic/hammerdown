@@ -1,5 +1,10 @@
 Aqui empieza el desarrollo del proyecto "Hammerdown"
 
-Como un humilde clon de tetris
+Mucho mugrero sin orden.
 
-Y mucho mugrero extra sin orden.
+Fuentes
+
+http://www.wired-weasel.com/users/serhid/blog/?page_id=4
+http://www.reinerstilesets.de/2d-grafiken/
+http://rltiles.sourceforge.net/
+http://www.lazyfoo.net/SDL_tutorials/index.php
