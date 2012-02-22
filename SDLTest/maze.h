@@ -85,8 +85,6 @@ void createMaze(int posX, int posY){
 
 void drawMaze(){
 	
-	createMaze(0, 0);
-	
 	int i, j;
 	for (i = 0; i < mazeRow; i++){
 		for (j = 0; j < mazeCol;  j++){

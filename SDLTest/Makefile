@@ -1,4 +1,4 @@
-CC = g++
+CC = gcc
 
 all:
-	$(CC) main.cpp `sdl-config --libs` -o muamua
+	$(CC) main.c `sdl-config --libs` -o muamua

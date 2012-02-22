@@ -6,13 +6,9 @@
 #include <stdlib.h>
 #include "SDL/SDL.h"
 
-#include "mapa.h"
-
 //Dimensiones de los tiles
 #define TILE_ANCHO	64
 #define TILE_ALTO	32
-
-
 
 //Buffer de la Pantalla
 SDL_Surface *pantalla = NULL;
@@ -33,11 +29,7 @@ int cursorY = 50;
 
 //Numero de tiles en la superficie
 int nTilesX, nTilesY;
-
-
-
-int main (int argc, char *argv[]);
-bool iniciar ();
+int iniciar ();
 void limpiar ();
 void dibujar ();
 void dibujarMapa ();

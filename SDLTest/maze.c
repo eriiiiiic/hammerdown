@@ -7,11 +7,11 @@
 //declaraciones pendejas globales
 //dimensiones cabronas 
 #define columnas 10
-#define renglones 5
+#define renglones 10
 
 //tamaño imbecil del laberinto a dibujar idiota
 #define mazeCol 21
-#define mazeRow 11
+#define mazeRow 21
 
 //puto laberinto y sus caminos
 int maze[renglones][columnas][4]; 	
@@ -32,9 +32,10 @@ void init(){
 
 srand(time(NULL));
 
-for (int i = 0; i < renglones; i++){
-	for (int j = 0; j < columnas; j++){
-		for (int k = 0; k < 4; k++){
+int i, j, k;
+for (i = 0; i < renglones; i++){
+	for (j = 0; j < columnas; j++){
+		for (k = 0; k < 4; k++){
 			maze[i][j][k] = -1;
 		} 
 	}
@@ -51,8 +52,8 @@ column[1] = 1;
 column[2] = 0;
 column[3] = -1;
 
-for (int i = 0; i < mazeRow; i++){
-	for (int j = 0; j < mazeCol; j++){
+for (i = 0; i < mazeRow; i++){
+	for (j = 0; j < mazeCol; j++){
  		mazeDraw[i][j] = 0;
 	}
 }
@@ -64,13 +65,17 @@ void mazeFuck(int posX, int posY){
 	//inicializa bandera de cagada validez 
 	int flag = 1;
 	int x = 0;
+	int movPos=0;
+	maze[posX][posY][0] = 5;
+	
 	//mientras hayan movimeintos de mierda válidos
 	while(flag){
-		
-		int valido[4];
+				
 		int cuenta = 0;
+		int valido[4];
 		//chequeo de casillas válidas imbecil
-		for (int i = 0; i < 4; i++){
+		int i;
+		for (i = 0; i < 4; i++){
 			//verifica que este adentro del maldito arreglo
 			if ( (posX + row[i] >= 0) && (posY + column[i] >= 0) && 
 				(posX + row[i] < renglones) && 
@@ -87,7 +92,7 @@ void mazeFuck(int posX, int posY){
 		//si hay movimientos de mierda válidos
 		if (cuenta != 0){ 
 			//elige un valor de mierda válido al chile (random)
-			int movPos = valido[rand() % cuenta];
+			movPos = valido[rand() % cuenta];
 			maze[posX][posY][x++] = movPos;
 			
 			//recursion!!!!
@@ -95,6 +100,7 @@ void mazeFuck(int posX, int posY){
 		
 		}else{
 			//si no hay, bla bla dice: "FLAG! no mames, eres falso, salte del puto while 
+			
 			flag = 0;
 		}
 	}
@@ -103,27 +109,14 @@ void mazeFuck(int posX, int posY){
 
 void printMaze(){
 	//la recorro a la puta
-	for (int i = 0; i < mazeRow; i++){
-		for (int j = 0; j < mazeCol; j++){
+	int i, j;
+	for (i = 0; i < mazeRow; i++){
+		for (j = 0; j < mazeCol; j++){
 				printf("%d", mazeDraw[i][j]);
 		}
 		printf("\n");
 	}
 }
-
-void printPath(){
-	//la recorro a la puta
-	for (int i = 0; i < renglones; i++){
-		for (int j = 0; j < columnas; j++){
-			for (int k = 0; k < columnas; k++){
-				printf("%d", maze[i][j][k]);
-			}
-			printf("        ");
-		}
-		printf("\n");
-	}
-}
-
 
 //dibuja perra!!!!
 void drawMaze(){
@@ -131,20 +124,22 @@ void drawMaze(){
 	//genera el laberinto y sus caminos de la chingada
 	mazeFuck(0, 0);
 	//se inicializa con algun caracter cagada
-	for (int i = 0; i < mazeRow; i++){
-		for (int j = 0; j < mazeCol;  j++){
+	int i, j;
+	for (i = 0; i < mazeRow; i++){
+		for (j = 0; j < mazeCol;  j++){
 			mazeDraw[i][j] = 0;			
 		}
 	}
 
 	//harcodea entrada y salida, que pendejo y webon
 	mazeDraw[1][0] = 1; 
-	mazeDraw[renglones - 2][columnas - 1]= 1;
+	mazeDraw[mazeRow - 2][mazeCol - 1] = 1;
 	
 	//recorre al arreglo lameculos para dibujar el putillo recorrido
-	for (int x = 0; x < renglones; x++){
-		for (int y = 0; y < columnas; y++){
-			for(int z = 0; z < 4; z++){
+	int x, y, z;
+	for (x = 0; x < renglones; x++){
+		for (y = 0; y < columnas; y++){
+			for(z = 0; z < 4; z++){
 				//si el putin valor es -1 no tumba pared
 				if(maze[x][y][z] != -1){
 					//guarda el mierda de valor del movimiento
@@ -162,11 +157,10 @@ void drawMaze(){
 	}
 	
 	//imprime el laberinto pinche cabron
-	//printMaze();
+	printMaze();
 }
 
 void main(){
 	init();
 	drawMaze();
-	printPath();
 }
