@@ -51,7 +51,7 @@ SDL_Surface *load_image( char *filename ){
     loadedImage = IMG_Load( filename );
 
     
-    if( loadedImage ){
+  /*  if( loadedImage ){
         
         optimizedImage = SDL_DisplayFormat( loadedImage );
 
@@ -66,9 +66,9 @@ SDL_Surface *load_image( char *filename ){
             
             SDL_SetColorKey( optimizedImage, SDL_SRCCOLORKEY, colorkey );
         }
-    }
+    }*/
     
-    return optimizedImage;
+    return loadedImage;
 }
 void move(Uint8 *keystates, int *x, int *y){
     
