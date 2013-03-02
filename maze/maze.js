@@ -153,7 +153,8 @@ function checaPosColorea(i){
 	//valida posicion y si es difrente a puta pared harcodeada = "0" se mueve
 	if( (posMazeX + row[i] >= 0) && (posMazeY + column[i] >= 0) && (posMazeX + row[i] < mazeDraw.length) && 
 	(posMazeY + column[i] < mazeDraw[0].length) ){
-		if (mazeDraw[posMazeX + row[i]][posMazeY + column[i]] != "0"){
+		if ((mazeDraw[posMazeX + row[i]][posMazeY + column[i]] != "0") && (mazeDraw[posMazeX + row[i]][posMazeY + column[i]] != "<font color=\"red\">::</font>") ){
+			
 			mazeDraw[posMazeX][posMazeY] = "<font color=\"red\">::</font>";
 			mazeDraw[posMazeX + row[i]][posMazeY + column[i]] = "<font color=\"yellow\">1</font>";
 			posMazeX+=row[i];
