@@ -5,4 +5,4 @@ Mucho mugrero sin orden.
 Fuentes
 
 http://www.lazyfoo.net/SDL_tutorials/index.php
-http://www.sdltutorials.com/
+http://dranger.com/ffmpeg/
